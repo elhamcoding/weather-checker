@@ -24,10 +24,13 @@ public class WeatherSummary {
             double firstTemperature = input.nextDouble();
             double max = firstTemperature;
             double min = firstTemperature;
+            double total = firstTemperature;
+            int count = 1;
 
             while (input.hasNextDouble()) {
                 double temperature = input.nextDouble();
-
+                total = total + temperature;
+                count++;
                 if (temperature > max) {
                     max = temperature;
                 }
@@ -39,6 +42,8 @@ public class WeatherSummary {
 
             System.out.println("Max: " + max);
             System.out.println("Min: " + min);
+            double average = total / count;
+            System.out.println("Average: " + average);
         }
     }
 }
