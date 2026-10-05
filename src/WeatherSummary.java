@@ -18,11 +18,27 @@ public class WeatherSummary {
      * @param args command line arguments (ignored)
      */
     public static void main(String[] args) {
-            Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
-    while (input.hasNextDouble()) {
-        double temperature = input.nextDouble();
-        System.out.println(temperature);
-    }
+        if (input.hasNextDouble()) {
+            double firstTemperature = input.nextDouble();
+            double max = firstTemperature;
+            double min = firstTemperature;
+
+            while (input.hasNextDouble()) {
+                double temperature = input.nextDouble();
+
+                if (temperature > max) {
+                    max = temperature;
+                }
+
+                if (temperature < min) {
+                    min = temperature;
+                }
+            }
+
+            System.out.println("Max: " + max);
+            System.out.println("Min: " + min);
+        }
     }
 }
